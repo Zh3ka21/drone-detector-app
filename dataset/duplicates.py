@@ -4,7 +4,7 @@ from PIL import Image
 import imagehash
 from tqdm import tqdm
 
-# Путь к директории с датасетом
+# Dataset dirs path
 DATASET_PATH = r""
 OUTPUT_PATH = r""
 

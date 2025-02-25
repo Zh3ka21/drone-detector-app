@@ -59,11 +59,13 @@ def subtract_files(file1, file2, output_file):
         numbers_2 = set(map(int, f2.read().split()))
     
     # Find the numbers that are in file1 but not in file2
-    result = numbers_1 - numbers_2
+    result = sorted(numbers_1 - numbers_2)
     
-    # Write the result to the output file
+    # Write the result to the output file, two numbers per line
     with open(output_file, 'w') as output:
-        output.write("\n".join(map(str, sorted(result))))
+        for i in range(0, len(result), 2):
+            # Write two numbers per line, checking to avoid index out of range
+            output.write(f"{result[i]} {result[i + 1] if i + 1 < len(result) else ''}\n")
     
     print(f"Output written to {output_file}")
     return output_file
